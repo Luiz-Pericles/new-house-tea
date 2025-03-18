@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Presentes para {{ ambiente }}{% endblock %}
+{% block content %}
+<h1 class="mb-4">Presentes para {{ ambiente }}</h1>
+<div class="row">
+  {% for gift in gifts %}
+  <div class="col-md-4">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ gift.item }}</h5>
+        <p class="card-text">
+           <strong>Categoria:</strong> {{ gift.categoria }}<br>
+           <strong>Preço:</strong> R$ {{ "%.2f"|format(gift.price) }}
+        </p>
+        {% if gift.reserved_by %}
+          <p class="card-text text-success">
+            Reservado por: {{ gift.reserved_by }}{% if gift.option %} ({{ gift.option }}){% endif %}
+          </p>
+        {% else %}
+          <a href="{{ url_for('reserve', gift_id=gift.id) }}" class="btn btn-primary">Reservar</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

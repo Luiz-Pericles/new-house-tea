@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Convite - Chá de Casa Nova{% endblock %}
+{% block content %}
+<div class="text-center">
+  <img src="{{ url_for('static', filename='images/invite_banner.jpg') }}" class="img-fluid mb-4" alt="Banner do Evento">
+  <h1>Você foi convidado!</h1>
+  <p class="lead">Venha celebrar conosco o nosso Chá de Casa Nova!</p>
+  <p>
+    <strong>17 de maio de 2025 às 15:00</strong> <br>
+    <strong>R. Rita Carneiro Diniz, 620 - Cuiá, João Pessoa - PB, 58077-174</strong> <br>
+    <a href="https://maps.app.goo.gl/19nQRb8hT2NZ1X8p6" target="_blank">
+        Local no google Maps
+    </a>
+  </p>
+  <a href="{{ url_for('gift_list') }}" class="btn btn-lg btn-primary">Ver Lista de Presentes</a>
+</div>
+{% endblock %}

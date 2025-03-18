@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Categorias de Presentes{% endblock %}
+{% block content %}
+<h1 class="mb-4">Escolha o Ambiente</h1>
+<div class="row">
+  {% for ambiente in ambientes %}
+  <div class="col-md-3">
+    <div class="card mb-4">
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ ambiente }}</h5>
+        <a href="{{ url_for('gift_category', ambiente=ambiente) }}" class="btn btn-primary">Ver Presentes</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
